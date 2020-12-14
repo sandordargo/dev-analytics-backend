@@ -1,6 +1,14 @@
-from flask import Flask
+from flask import Flask, jsonify
 app = Flask(__name__)
+
 
 @app.route('/')
 def hello_world():
-    return 'Hello World, this is DEV analytics here!'
+    response = jsonify(message='Hello World, this is DEV analytics here!')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
+
+
+if __name__ == "__main__":
+    app.run()
+
