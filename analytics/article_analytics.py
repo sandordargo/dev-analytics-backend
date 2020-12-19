@@ -1,7 +1,8 @@
 def analyse(articles):
     return {
         "numberOfArticles": len(articles),
-        "totalViews": get_total_reactions(articles),
+        "totalViews": get_total_views(articles),
+        "totalReactions": get_total_reactions(articles),
         "totalComments": get_total_comments(articles),
         "mostViewedArticleRatioToTotal": get_part_of_most_viewed_article_out_of_total_views(articles) * 100,
         "mostReactedArticleRatioToTotal": get_part_of_article_with_most_reactions_out_of_total_reaction(articles) * 100,
