@@ -21,6 +21,7 @@ def extract_articles_from_json(json_data):
                             article_as_json["page_views_count"],
                             article_as_json['positive_reactions_count'],
                             article_as_json['comments_count'],
+                            article_as_json["url"],
                             article_as_json["published_timestamp"],
                             article_as_json["tag_list"])
             for article_as_json in json_data]

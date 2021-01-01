@@ -1,10 +1,11 @@
 class Article:
 
-    def __init__(self, title, views, reactions, comments, creation_time=None, tags=None):
+    def __init__(self, title, views, reactions, comments, url, creation_time=None, tags=None):
         self.title = title
         self.views = views
         self.reactions = reactions
         self.comments = comments
+        self.url = url
         self.creation_time = creation_time
         self.tags = tags or []
 
@@ -13,6 +14,7 @@ class Article:
         "views": self.views,
         "reactions": self.reactions,
         "comments": self.comments,
+        "url": self.url,
         "creation_time": self.creation_time,
         "tags": [tag for tag in self.tags]
     }
@@ -24,6 +26,7 @@ class Article:
                self.views == other.views and \
                self.reactions == other.reactions and \
                self.comments == other.comments and \
+               self.url == other.url and \
                self.creation_time == other.creation_time and \
                self.tags == other.tags
 
@@ -32,11 +35,13 @@ class Article:
                " views={views}," \
                " reactions={reactions}," \
                " comments={comments}," \
+               " url={url}," \
                " creation_time={creation_time}" \
                " tags={tags})\n".format(title=self.title,
                                         views=self.views,
                                         reactions=self.reactions,
                                         comments=self.comments,
+                                        url=self.url,
                                         creation_time=self.creation_time,
                                         tags=self.tags)
 
