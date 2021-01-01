@@ -24,7 +24,9 @@ def analyse(articles):
         "percentageOfArticlesGiving95PercentOfComments": get_ratio_of_articles_giving_top_n_percent_of_comments(
             articles,
             95) * 100,
-
+        "fiveMostViewedArticles": [article.as_json() for article in get_top_n_views(articles, 5)],
+        "fiveMostReactedArticles": [article.as_json() for article in get_top_n_reactions(articles, 5)],
+        "fiveMostCommentedArticles": [article.as_json() for article in get_top_n_comments(articles, 5)],
     }
 
 

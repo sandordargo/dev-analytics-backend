@@ -1,3 +1,4 @@
 *.pyc
 .venvs/
 .idea/
+__pycache__/*

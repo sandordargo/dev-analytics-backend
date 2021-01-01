@@ -8,6 +8,15 @@ class Article:
         self.creation_time = creation_time
         self.tags = tags or []
 
+    def as_json(self): return {
+        "title": self.title,
+        "views": self.views,
+        "reactions": self.reactions,
+        "comments": self.comments,
+        "creation_time": self.creation_time,
+        "tags": [tag for tag in self.tags]
+    }
+
     def __eq__(self, other: object) -> bool:
         if type(self) != type(other):
             return False
