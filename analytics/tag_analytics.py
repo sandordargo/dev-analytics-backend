@@ -56,13 +56,13 @@ def analyze(tags):
             tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.reactions)[:min(len(tags), 5)]
         ],
         "fiveTagsWithMostViewsPerArticle": [
-            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.views)[:min(len(tags), 5)]
+            tag.as_json() for tag in sorted(tags, reverse=True, key=Tag.get_views_per_article)[:min(len(tags), 5)]
         ],
         "fiveTagsWithMostReactionsPerArticle": [
-            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.reactions)[:min(len(tags), 5)]
+            tag.as_json() for tag in sorted(tags, reverse=True, key=Tag.get_reactions_per_article)[:min(len(tags), 5)]
         ],
         "fiveTagsWithMostCommentsPerArticle": [
-            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.comments)[:min(len(tags), 5)]
+            tag.as_json() for tag in sorted(tags, reverse=True, key=Tag.get_comments_per_article)[:min(len(tags), 5)]
         ],
     }
 

@@ -12,6 +12,7 @@ class Tag:
         "views": self.views,
         "reactions": self.reactions,
         "comments": self.comments,
+        "numberOfArticles": len(self.articles),
     }
 
     def get_views_per_article(self):
