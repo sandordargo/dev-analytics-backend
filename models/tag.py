@@ -7,6 +7,13 @@ class Tag:
         self.comments = comments or 0
         self.articles = articles or []
 
+    def as_json(self): return {
+        "name": self.name,
+        "views": self.views,
+        "reactions": self.reactions,
+        "comments": self.comments,
+    }
+
     def get_views_per_article(self):
         return self.views / len(self.articles)
 

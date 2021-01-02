@@ -46,6 +46,24 @@ def analyze(tags):
             "name": get_most_comments_per_article_tag(tags).name,
             "count": get_most_comments_per_article_tag(tags).get_comments_per_article()
         },
+        "fiveMostViewedTags": [
+            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.views)[:min(len(tags), 5)]
+        ],
+        "fiveMostCommentedTags": [
+            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.comments)[:min(len(tags), 5)]
+        ],
+        "fiveMostReactedTags": [
+            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.reactions)[:min(len(tags), 5)]
+        ],
+        "fiveTagsWithMostViewsPerArticle": [
+            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.views)[:min(len(tags), 5)]
+        ],
+        "fiveTagsWithMostReactionsPerArticle": [
+            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.reactions)[:min(len(tags), 5)]
+        ],
+        "fiveTagsWithMostCommentsPerArticle": [
+            tag.as_json() for tag in sorted(tags, reverse=True, key=lambda tag: tag.comments)[:min(len(tags), 5)]
+        ],
     }
 
 def get_tag_with_most_views(tags):
