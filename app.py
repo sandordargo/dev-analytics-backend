@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from analytics import article_analytics, article_fetcher, tag_analytics
+import logging
 
 app = Flask(__name__)
 
@@ -17,5 +18,7 @@ def hello_world():
 
 
 if __name__ == "__main__":
+    log = logging.getLogger('werkzeug')
+    log.setLevel(logging.ERROR)
     app.run()
 
